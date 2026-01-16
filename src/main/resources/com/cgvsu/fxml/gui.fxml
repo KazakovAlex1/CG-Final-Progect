@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+
+<AnchorPane fx:id="anchorPane"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cgvsu.GuiController">
+
+    <!-- Верхнее меню -->
+    <MenuBar AnchorPane.topAnchor="0.0"
+             AnchorPane.leftAnchor="0.0"
+             AnchorPane.rightAnchor="0.0">
+
+        <Menu text="File">
+            <MenuItem text="Load Model"
+                      onAction="#onOpenModelMenuItemClick"/>
+        </Menu>
+
+        <Menu text="Camera">
+            <MenuItem text="Forward" onAction="#handleCameraForward"/>
+            <MenuItem text="Backward" onAction="#handleCameraBackward"/>
+            <MenuItem text="Left" onAction="#handleCameraLeft"/>
+            <MenuItem text="Right" onAction="#handleCameraRight"/>
+            <MenuItem text="Up" onAction="#handleCameraUp"/>
+            <MenuItem text="Down" onAction="#handleCameraDown"/>
+        </Menu>
+    </MenuBar>
+
+    <!-- Canvas -->
+    <Canvas fx:id="canvas"
+            width="1200"
+            height="800"
+            AnchorPane.topAnchor="30.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="280.0"
+            AnchorPane.bottomAnchor="0.0"/>
+
+    <!-- Правая панель -->
+    <VBox spacing="14"
+          prefWidth="280"
+          AnchorPane.topAnchor="30.0"
+          AnchorPane.rightAnchor="0.0"
+          AnchorPane.bottomAnchor="0.0"
+          style="-fx-padding: 12; -fx-background-color: #f0f0f0;">
+
+        <Label text="Object Controls"
+               style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+        <!-- SCALE -->
+        <Label text="Scale" style="-fx-font-weight: bold;"/>
+        <VBox spacing="6">
+            <HBox spacing="6">
+                <Label text="X:" prefWidth="20"/>
+                <Button fx:id="scaleXMinusBtn" text="-" onAction="#onScaleXMinus"/>
+                <Label fx:id="scaleXLabel" text="1.00" prefWidth="45"/>
+                <Button fx:id="scaleXPlusBtn" text="+" onAction="#onScaleXPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Y:" prefWidth="20"/>
+                <Button fx:id="scaleYMinusBtn" text="-" onAction="#onScaleYMinus"/>
+                <Label fx:id="scaleYLabel" text="1.00" prefWidth="45"/>
+                <Button fx:id="scaleYPlusBtn" text="+" onAction="#onScaleYPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Z:" prefWidth="20"/>
+                <Button fx:id="scaleZMinusBtn" text="-" onAction="#onScaleZMinus"/>
+                <Label fx:id="scaleZLabel" text="1.00" prefWidth="45"/>
+                <Button fx:id="scaleZPlusBtn" text="+" onAction="#onScaleZPlus"/>
+            </HBox>
+        </VBox>
+
+        <!-- ROTATION -->
+        <Label text="Rotation (rad)" style="-fx-font-weight: bold;"/>
+        <VBox spacing="6">
+            <HBox spacing="6">
+                <Label text="X:" prefWidth="20"/>
+                <Button fx:id="rotateXMinusBtn" text="-" onAction="#onRotateXMinus"/>
+                <Label fx:id="rotateXLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="rotateXPlusBtn" text="+" onAction="#onRotateXPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Y:" prefWidth="20"/>
+                <Button fx:id="rotateYMinusBtn" text="-" onAction="#onRotateYMinus"/>
+                <Label fx:id="rotateYLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="rotateYPlusBtn" text="+" onAction="#onRotateYPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Z:" prefWidth="20"/>
+                <Button fx:id="rotateZMinusBtn" text="-" onAction="#onRotateZMinus"/>
+                <Label fx:id="rotateZLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="rotateZPlusBtn" text="+" onAction="#onRotateZPlus"/>
+            </HBox>
+        </VBox>
+
+        <!-- TRANSLATION -->
+        <Label text="Translation" style="-fx-font-weight: bold;"/>
+        <VBox spacing="6">
+            <HBox spacing="6">
+                <Label text="X:" prefWidth="20"/>
+                <Button fx:id="translateXMinusBtn" text="-" onAction="#onTranslateXMinus"/>
+                <Label fx:id="translateXLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="translateXPlusBtn" text="+" onAction="#onTranslateXPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Y:" prefWidth="20"/>
+                <Button fx:id="translateYMinusBtn" text="-" onAction="#onTranslateYMinus"/>
+                <Label fx:id="translateYLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="translateYPlusBtn" text="+" onAction="#onTranslateYPlus"/>
+            </HBox>
+            <HBox spacing="6">
+                <Label text="Z:" prefWidth="20"/>
+                <Button fx:id="translateZMinusBtn" text="-" onAction="#onTranslateZMinus"/>
+                <Label fx:id="translateZLabel" text="0.00" prefWidth="45"/>
+                <Button fx:id="translateZPlusBtn" text="+" onAction="#onTranslateZPlus"/>
+            </HBox>
+        </VBox>
+
+        <Separator/>
+
+        <Button text="Reset Transformations"
+                fx:id="resetTransformButton"
+                prefWidth="240"
+                onAction="#onResetTransformButtonClick"/>
+    </VBox>
+
+</AnchorPane>
